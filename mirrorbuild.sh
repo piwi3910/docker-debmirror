@@ -5,11 +5,6 @@
 
 ## Setting variables with explanations.
 
-#
-# Don't touch the user's keyring, have our own instead
-#
-export GNUPGHOME=/mirrorkeyring
-
 # Arch=         -a      # Architecture. For Ubuntu can be i386, powerpc or amd64.
 # sparc, only starts in dapper, it is only the later models of sparc.
 #
@@ -31,7 +26,7 @@ release=focal,focal-security,focal-updates
 # CHANGE "*" to equal the mirror you want to create your mirror from. au. in Australia  ca. in Canada.
 # This can be found in your own /etc/apt/sources.list file, assuming you have Ubuntu installed.
 #
-server=archive.ubuntu.com
+server=ae.archive.ubuntu.com
 
 # Dir=          -r      # Path from the main server, so http://my.web.server/$dir, Server dependant
 #

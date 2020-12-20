@@ -5,7 +5,8 @@ LABEL   maintainer="Pascal Watteel" \
         version="1.0"
 
 #set env variables
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND noninteractive \
+    GNUPGHOME /mirrorkeyring
 
 # Requirements
 RUN apt-get update -y \
@@ -19,6 +20,8 @@ RUN apt-get update -y \
 ADD mirrorbuild.sh /tmp/mirrorbuild.sh
 RUN chmod +x /tmp/mirrorbuild.sh \
     && mv /tmp/mirrorbuild.sh /mirrorbuild.sh \
-    && mkdir /data
+    && mkdir /data \
+    && mkdir ${GNUPGHOME} \
+    && gpg --no-default-keyring --keyring ${GNUPGHOME}/trustedkeys.gpg --import /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
 ENTRYPOINT [ "sh", "./mirrorbuild.sh" ]    
