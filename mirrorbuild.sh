@@ -8,7 +8,7 @@
 #
 # Don't touch the user's keyring, have our own instead
 #
-export GNUPGHOME=/home/mirrorkeyring
+export GNUPGHOME=/mirrorkeyring
 
 # Arch=         -a      # Architecture. For Ubuntu can be i386, powerpc or amd64.
 # sparc, only starts in dapper, it is only the later models of sparc.
